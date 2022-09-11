@@ -4,7 +4,8 @@ import numpy as np
 import sys
 import subprocess
 
-# implement pip as a subprocess:
+
+# CHECK DEPENDENCIES:
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
 'gspread'])
 

@@ -20,6 +20,6 @@ st.subheader('Tracking Mood over time')
 fig = px.scatter(data, x="timestamp", y="mood", text="mood", title='Drew has a bad mood', trendline='ols', trendline_color_override='green')
 fig.data[0].update(mode='markers+lines', fill='toself')
 fig.update_traces(textposition='top left')
-st.plotly_chart(fig, use_container_width=False)
+st.plotly_chart(fig, use_container_width=True)
 
 st.write("pensi")
