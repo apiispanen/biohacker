@@ -1,6 +1,17 @@
 from datetime import datetime as dt
 import numpy as np
 #### GET MY GOOGLE SHEET DATA
+import sys
+import subprocess
+
+# implement pip as a subprocess:
+subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+'gspread'])
+
+subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+'oauth2client'])
+
+
 
 scope =  ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/drive.file', "https://www.googleapis.com/auth/drive","https://www.googleapis.com/auth/drive"]
 
