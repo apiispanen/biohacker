@@ -1,0 +1,71 @@
+<!doctype html> <html> <head> <meta charset="utf-8" /> <title>Log in to Timely - Memory</title> <meta name="csrf-param" content="authenticity_token" /> <meta name="csrf-token" content="CGFPITjTzBgCQtyrTKx4yVK0CmR7KXmWyXOA8C-NoQFbvDBb5q6sQ7o6uvuRRihAjPJY6fLv_-JOuBew2Q1Vew" /> <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="referrer" content="origin"> <link rel="icon" type="image/x-icon" href="https://d1luwo5u9zpc4i.cloudfront.net/assets/favicon-976401d7b4c17794f48a51dc05b1a17c4bd031796465b1108b8cc1d3dc9a1b4a.ico" /> <link rel="stylesheet" href="https://d1luwo5u9zpc4i.cloudfront.net/assets/application-a0e9779d9b20df3689e18342b20d0367488e9204ef9a9baa4336acb5fef4472e.css" media="all" /> </head> <body> <div id="page-container"> <div id="content-wrap"> <header> <div> <a href="https://memory.ai" target="_blank"> <img class="memory_logo" width="93" height="25" src="https://d1luwo5u9zpc4i.cloudfront.net/assets/memory_logo-f1db7b16e667aab7b9a607429d44d5cc17125da4f36faac751017cdb71ea8ac2.svg" /> </a> </div> <div style="text-align: center;"> <a href="https://timelyapp.com" target="_blank"><img class="app_icon" src="https://d1luwo5u9zpc4i.cloudfront.net/assets/memory_apps/timely_icon-0009454e9497f1cb2a0f9042037156a62c31421032858278d5002aae979084a2.svg" /></a> </div> <div></div> </header> <div class='identity'> <div class='main'> <div class='content'> <h1> Log in to Timely </h1> <div class='sign_up_link'> Don't have an account? <a data-testid="signup_link" id="memory-signup-link" href="https://app.timelyapp.com/join/?">Sign up</a> </div> <form data-sso-url="https://auth.memory.ai/launch/sso" class="new_user_session" id="new_user_session" action="/login" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="O-Qt9FYNuoZpUNLOIEPYTDeRKW5wNxwmMKVx9egkowEFG2eGhICSra1mjhUa-7mveonYGC0C9AHin3y4BsAlGg" autocomplete="off" /> <div class='loginForm'> <div class='float-label'> <input class="input" id="email" required="required" type="text" name="user[email]" /> <label for="user_email">Email</label> </div> <div id='next-inputs' style="display: block"> <input type="submit" name="commit" value="Next" class="spinner" id="next-btn" data-disable-with="Next" /> <div class='spinner-container'></div> </div> <div class='float-label revealable-password' id='password-inputs' style='display: none'> <input class="input" id="password" required="required" type="password" name="user[password]" /> <label for="user_password">Password</label> <div class='toggle' focusable='false'></div> </div> <div class="alert alert-danger" id="ajax-error" style="display:none"></div> <input autocomplete="off" type="hidden" name="user[campaign]" id="user_campaign" /> <input autocomplete="off" type="hidden" name="user[coupon]" id="user_coupon" /> <input autocomplete="off" type="hidden" name="user[plan]" id="user_plan" /> <input autocomplete="off" type="hidden" name="user[client_id]" id="user_client_id" /> <div id='log-in-inputs' style='display: none'> <input type="submit" name="commit" value="Log in" class="spinner" id="log-in-btn" disable_with="Signing in" data-auth="memory" data-disable-with="Log in" /> <div class='spinner-container'></div> </div> <p class='alternative'> <a href="/users/password/new">I forgot my password</a> </p> </div> </form> <form action="/auth/google/authorize" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="w-dZA4xIpV4ybk3J7N5d9H7KkSDxIXOlMrgFLqqOFy9nYsjcXyEUECm2GZAPpzNWwVbijESbu62u_Hq7MWF_Og" autocomplete="off" /><button type="submit" class="btn btn-primary btn-block google-button" data-auth="google"> <input type="hidden" name="client_id" id="client_id" autocomplete="off" /> <img class="google-button-icon" src="https://d1luwo5u9zpc4i.cloudfront.net/assets/google_signin-f3c9ed21a2b2cb641cd72c0c1ab811e3ad589cb0abfe0f4f37dce575492d29de.svg" /> Sign in with Google </button></form> <form action="/auth/apple/authorize" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="nwrH4CAsGxAQwX_fM2j90eHHak4H5Zhlh1TjM6dXQE79p2Z1tb3AfapxgwT--bD8w5qu2wOiDOb9DufCRBWgFw" autocomplete="off" /><button type="submit" class="btn btn-primary btn-block google-button" data-auth="apple"> <input type="hidden" name="client_id" id="client_id" autocomplete="off" /> <img class="google-button-icon" src="https://d1luwo5u9zpc4i.cloudfront.net/assets/left-black-logo-large-a3b14837a5f04bd3760b77c1e293fdb489555d095a6420427453e84643cd0b67.svg" /> Sign in with Apple </button></form> </div> </div> <div class='sidecar'> <div class="headline"> Top rated time tracking </div> <div class="badges"> <div class="grid-container"> <div class="grid-item"> <img alt="Timely is a leader in Time Tracking on G2" src="https://d1luwo5u9zpc4i.cloudfront.net/assets/g2/g2_badge_leader_2022-4989cf71ff2b88b58b3df99236eb51391394fb1b9aba84d52b9c6d200f326f86.svg" class="g2-badge" width="116" height="150" /> </div> <div class="grid-item"> <img alt="Timely is a leader in Most Implementable Time Tracking on G2" src="https://d1luwo5u9zpc4i.cloudfront.net/assets/g2/g2_badge_users_love_us-2008b519df49af90dcfa7db4b5fe13c8ec24ced0348f0a6bd039711ad8bbffc7.svg" class="g2-badge" width="116" height="150" /> </div> <div class="grid-item"> <img alt="Timely is a leader in Time Tracking with Best Usability on G2" src="https://d1luwo5u9zpc4i.cloudfront.net/assets/g2/g2_badge_usability_2022-9131129e6af4167315ef22db0d53e5335fe1d6333d95f91c1deb0ff454165883.svg" class="g2-badge" width="116" height="150" /> </div> </div> </div> <div class="review-container"> <h3>“The best way to measure exactly where your time goes.”</h3> <div class="review-author"> <span class="review-author-name">Brian,</span> Accountant </div> </div> <div class="review-container"> <h3>“Timely takes a load off my brain.”</h3> <div class="review-author"> <span class="review-author-name">Erik,</span> Digital Designer </div> </div> <div class="review-container"> <h3>“Easy to use and I love the project level summaries.”</h3> <div class="review-author"> <span class="review-author-name">Jonathan,</span> Software Engineer </div> </div> </div> </div> <script type="text/javascript"> !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="RWbW21NElGVCcZscKgHPV9mXzSvHkUnS";analytics.SNIPPET_VERSION="4.15.2"; analytics.load("RWbW21NElGVCcZscKgHPV9mXzSvHkUnS"); }}(); </script> <script type="text/javascript"> window.addEventListener("load", function onLoad() { const hasAnalytics = typeof analytics !== "undefined"; const params = new URLSearchParams(window.location.search); if(hasAnalytics && params.get('ajs_anonymous_id') !== null){ analytics.setAnonymousId(params.get('ajs_anonymous_id')); }
+
+analytics.ready(function() {
+    const properties = {
+      platform: "Web",
+    };
+    const context = {}
+
+    if (window.location.pathname.includes('activate')){
+      properties.path = properties.url = window.location.href.split('?')[0];
+      properties.search = '';
+      context.page = {search: '', url: properties.path};
+    }else if(window.location.pathname.includes('auth')){
+      properties.path = properties.url = "https://auth.memory.ai/auth";
+      properties.search = '';
+      context.page = {search: '', url: properties.path};
+    }
+
+    analytics.page("Web",  "Sessions New", properties, context);
+
+    document.querySelectorAll("[data-auth]").forEach(function (button) {
+      button.addEventListener("click", function (event) {
+        let redirectUrl;
+        const parent = event.target.closest("form");
+        // We really don't want any errors in the tracking code to prevent signups
+        try {
+          /** @type {HTMLFormElement & HTMLAnchorElement} */
+          redirectUrl = parent && parent.action;
+          if (!redirectUrl) return;
+          const authentication = event.target.dataset.auth;
+          analytics.track(
+            "Sign In Button Clicked",
+            { authentication },
+            { integrations: { Intercom: false } }
+          );
+
+          // Wait until the tracked event has been flushed before redirecting
+          event.preventDefault();
+          analytics.queue
+            .flush()
+            .then(function () {
+              parent.submit();
+            })
+            .catch(function (e) {
+              parent.submit();
+            });
+        } catch (e) {
+          if (redirectUrl) {
+            parent.submit();
+          }
+        }
+      });
+    });
+
+    document.querySelectorAll('[id$="-signup-link"]').forEach(function (button) {
+      try {
+        const url = new URL(button.href);
+        if (!url.searchParams.has("ajs_anonymous_id")) {
+          url.searchParams.append(
+            "ajs_anonymous_id",
+            analytics.user().anonymousId()
+          );
+          button.href = url.toString();
+        }
+      } catch (e) {
+        console.log(e)
+      }
+    });
+  });
+});
+</script> </div> <footer><span class="copyright">Copyright 2022 Memory AS</span></footer> </div> <script src="https://d1luwo5u9zpc4i.cloudfront.net/packs/js/runtime-6599c62bd92ccf645cae.js"></script> <script src="https://d1luwo5u9zpc4i.cloudfront.net/packs/js/325-6fda8c53bfb6f94bdbbe.js"></script> <script src="https://d1luwo5u9zpc4i.cloudfront.net/packs/js/application-e0a34babbf3fdfb88845.js"></script> <script src="https://d1luwo5u9zpc4i.cloudfront.net/packs/js/form_components-a776f3783a849972a602.js"></script> </body> </html>
