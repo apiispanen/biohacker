@@ -11,6 +11,10 @@ subprocess.check_call([sys.executable, '-m', 'pip', 'install',
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
 'oauth2client'])
 
+subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+'plotly'])
+
+
 
 
 scope =  ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/drive.file', "https://www.googleapis.com/auth/drive","https://www.googleapis.com/auth/drive"]
