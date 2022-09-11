@@ -7,5 +7,5 @@ Biohacker is a database used to track my moods. As I give myself a scale of 1-5 
 This is my day 1.<br><br> 
 
 ## Packages Used
-Google Forms
-Python Libraries: Oauth2client, plotly, numpy, streamlit (for data vis renderings)
+- Google Forms
+- Python Libraries: Oauth2client, plotly, numpy, streamlit (for data vis renderings)
