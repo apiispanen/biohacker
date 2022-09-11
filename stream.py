@@ -22,4 +22,4 @@ fig.data[0].update(mode='markers+lines', fill='toself')
 fig.update_traces(textposition='top left')
 st.plotly_chart(fig, use_container_width=True)
 
-st.write("pensi")
+st.write("testing")
