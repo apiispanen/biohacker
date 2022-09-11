@@ -5,18 +5,18 @@ import sys
 import subprocess
 
 
-# CHECK DEPENDENCIES:
-subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
-'gspread'])
+# # CHECK DEPENDENCIES:
+# subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+# 'gspread'])
 
-subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
-'oauth2client'])
+# subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+# 'oauth2client'])
 
-subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
-'plotly'])
+# subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+# 'plotly'])
 
-subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
-'statsmodels'])
+# subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+# 'statsmodels'])
 
 
 
