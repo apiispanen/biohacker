@@ -1,0 +1,8 @@
+gspread
+oauth2client
+plotly
+statsmodels
+json
+requests
+pandas
+numpy
