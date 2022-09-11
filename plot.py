@@ -7,12 +7,12 @@ import pandas as pd
 import hvplot.pandas
 from path import Path
 import plotly.express as px
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
-from sklearn.decomposition import PCA
-from sklearn.cluster import KMeans
+# from sklearn.preprocessing import StandardScaler, MinMaxScaler
+# from sklearn.decomposition import PCA
+# from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 from matplotlib import style
-import seaborn as sns
+# import seaborn as sns
 from pprint import pprint as pppip 
 
 from matplotlib.pyplot import figure
