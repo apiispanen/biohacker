@@ -1,0 +1,6 @@
+{
+    "Data Source": "derived:com.google.activity.segment:com.google.android.gms:merge_activity_segments",
+    "Data Points": [
+        {"fitValue":[{"value":{"intVal":3}}],"originDataSourceId":"derived:com.google.activity.samples:com.google.android.gms:motorola:moto g(7) power:b8c2d6403aa74c3c:detailed","endTimeNanos":1582253766781000000,"dataTypeName":"com.google.activity.segment","startTimeNanos":1582253160352000000,"modifiedTimeMillis":1582296096804,"rawTimestampNanos":0}
+    ]
+}

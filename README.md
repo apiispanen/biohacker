@@ -10,3 +10,6 @@ This is my day 1.<br><br>
 ## Packages Used
 - Google Forms
 - Python Libraries: Oauth2client, plotly, numpy, streamlit (for data vis renderings)
+
+
+## NOTE TO SELF - CREATE PULLS IN DATA WITH THE "TAKEOUT" FOLDER

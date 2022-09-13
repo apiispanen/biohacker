@@ -1,0 +1,7 @@
+{
+    "Data Source": "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps",
+    "Data Points": [
+        {"fitValue":[{"value":{"intVal":20}}],"originDataSourceId":"raw:com.google.step_count.cumulative:motorola:moto g(7) power:b8c2d6403aa74c3c:Step Counter","endTimeNanos":1582253434731798130,"dataTypeName":"com.google.step_count.delta","startTimeNanos":1582253374731798130,"modifiedTimeMillis":1582296096688,"rawTimestampNanos":0},
+        {"fitValue":[{"value":{"intVal":3}}],"originDataSourceId":"raw:com.google.step_count.cumulative:motorola:moto g(7) power:b8c2d6403aa74c3c:Step Counter","endTimeNanos":1582253741944151115,"dataTypeName":"com.google.step_count.delta","startTimeNanos":1582253681944151115,"modifiedTimeMillis":1582296096688,"rawTimestampNanos":0}
+    ]
+}

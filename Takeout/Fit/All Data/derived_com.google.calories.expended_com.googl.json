@@ -1,0 +1,6 @@
+{
+    "Data Source": "derived:com.google.calories.expended:com.google.android.gms:merge_calories_expended",
+    "Data Points": [
+        {"fitValue":[{"value":{"fpVal":10.980997085571289}}],"originDataSourceId":"derived:com.google.calories.expended:com.google.android.gms:from_activities","endTimeNanos":1582253766781000000,"dataTypeName":"com.google.calories.expended","startTimeNanos":1582253160352000000,"modifiedTimeMillis":1582296099331,"rawTimestampNanos":0}
+    ]
+}
