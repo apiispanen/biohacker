@@ -9,8 +9,8 @@ import subprocess
 # subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
 # 'gspread'])
 
-subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
-'tkinter'])
+# subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+# 'tkinter'])
 
 # subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
 # 'oauth2client'])
