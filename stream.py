@@ -46,4 +46,65 @@ fig.update_traces(textposition='top left')
 st.plotly_chart(fig, use_container_width=True)
 
 
+
+# MEXT
+
+
+steps_health_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierFlightsClimbed' )&
+    (health_df['endDate'] > dt(2022, 9, 8))
+    ].set_index('endDate').groupby(pd.Grouper(freq='D')).sum()
+# st.write(steps_health_df)
+
+fig = px.scatter(steps_health_df, x=steps_health_df.index, y="Value", title='Health Data Test: Total Flights')
+fig.data[0].update(mode='markers', fill='toself')
+fig.update_traces(marker=dict(size=12,
+                              line=dict(width=2,
+                                        color='DarkSlateGrey')),
+                  selector=dict(mode='markers'))
+
+fig.update_traces(textposition='top left')
+
+st.plotly_chart(fig, use_container_width=True)
+
+
+# NEXT PLOT
+
+# MEXT
+
+
+steps_health_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierDistanceWalkingRunning' )&
+    (health_df['endDate'] > dt(2022, 9, 8))
+    ].set_index('endDate').groupby(pd.Grouper(freq='D')).sum()
+# st.write(steps_health_df)
+
+fig = px.scatter(steps_health_df, x=steps_health_df.index, y="Value", title='Health Data Test: Dist Walking/Running')
+fig.data[0].update(mode='markers', fill='toself')
+fig.update_traces(marker=dict(size=12,
+                              line=dict(width=2,
+                                        color='DarkSlateGrey')),
+                  selector=dict(mode='markers'))
+
+fig.update_traces(textposition='top left')
+
+st.plotly_chart(fig, use_container_width=True)
+
+
+# MEXT
+
+
+steps_health_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierWalkingDoubleSupportPercentage' )&
+    (health_df['endDate'] > dt(2022, 9, 8))
+    ].set_index('endDate').groupby(pd.Grouper(freq='D')).mean()
+# st.write(steps_health_df)
+
+fig = px.scatter(steps_health_df, x=steps_health_df.index, y="Value", title='Health Data Test: Standing-Sitting')
+fig.data[0].update(mode='markers', fill='toself')
+fig.update_traces(marker=dict(size=12,
+                              line=dict(width=2,
+                                        color='DarkSlateGrey')),
+                  selector=dict(mode='markers'))
+
+fig.update_traces(textposition='top left')
+
+st.plotly_chart(fig, use_container_width=True)
 # st.write("testing")
