@@ -5,9 +5,12 @@ import sys
 import subprocess
 
 
-# # CHECK DEPENDENCIES:
+# CHECK DEPENDENCIES:
 # subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
 # 'gspread'])
+
+subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+'tkinter'])
 
 # subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
 # 'oauth2client'])
