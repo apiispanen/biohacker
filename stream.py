@@ -9,7 +9,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 from health import health_df
 from datetime import datetime as dt
-import tk-tools
 
 st.title("Biohackerz")
 
@@ -38,8 +37,7 @@ steps_health_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierS
 fig = px.scatter(steps_health_df, x=steps_health_df.index, y="Value", title='Health Data Test: Total Steps')
 fig.data[0].update(mode='markers', fill='toself')
 fig.update_traces(marker=dict(size=12,
-                              line=dict(width=2,
-                                        color='DarkSlateGrey')),
+                              line=dict(width=2)),
                   selector=dict(mode='markers'))
 
 fig.update_traces(textposition='top left')
@@ -59,8 +57,7 @@ steps_health_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierF
 fig = px.scatter(steps_health_df, x=steps_health_df.index, y="Value", title='Health Data Test: Total Flights')
 fig.data[0].update(mode='markers', fill='toself')
 fig.update_traces(marker=dict(size=12,
-                              line=dict(width=2,
-                                        color='DarkSlateGrey')),
+                              line=dict(width=2)),
                   selector=dict(mode='markers'))
 
 fig.update_traces(textposition='top left')
@@ -81,8 +78,7 @@ steps_health_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierD
 fig = px.scatter(steps_health_df, x=steps_health_df.index, y="Value", title='Health Data Test: Dist Walking/Running')
 fig.data[0].update(mode='markers', fill='toself')
 fig.update_traces(marker=dict(size=12,
-                              line=dict(width=2,
-                                        color='DarkSlateGrey')),
+                              line=dict(width=2)),
                   selector=dict(mode='markers'))
 
 fig.update_traces(textposition='top left')
@@ -101,8 +97,7 @@ steps_health_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierW
 fig = px.scatter(steps_health_df, x=steps_health_df.index, y="Value", title='Health Data Test: Standing-Sitting')
 fig.data[0].update(mode='markers', fill='toself')
 fig.update_traces(marker=dict(size=12,
-                              line=dict(width=2,
-                                        color='DarkSlateGrey')),
+                              line=dict(width=2)),
                   selector=dict(mode='markers'))
 
 fig.update_traces(textposition='top left')
