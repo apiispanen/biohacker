@@ -10,7 +10,7 @@ import subprocess
 # 'gspread'])
 
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
-'tk-tools'])
+'tkinter'])
 
 # subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
 # 'oauth2client'])
