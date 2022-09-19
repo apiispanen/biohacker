@@ -2,8 +2,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from pull_sheet import data
-from pull_sheet import dates_visited_gym
+from pull_sheet import *
+# from pull_sheet import dates_visited_gym
 from datetime import datetime as dt
 # from plot import plt
 import plotly.express as px
