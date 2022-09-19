@@ -1,4 +1,4 @@
-from turtle import color, fillcolor
+# from turtle import color, fillcolor
 import streamlit as st
 import pandas as pd
 import numpy as np
