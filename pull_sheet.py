@@ -18,8 +18,8 @@ import subprocess
 # subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
 # 'plotly'])
 
-subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
-'lxml'])
+# subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+# 'lxml'])
 
 # subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
 # 'statsmodels'])
