@@ -19,7 +19,7 @@ import subprocess
 # 'plotly'])
 
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
-'etree'])
+'lxml'])
 
 # subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
 # 'statsmodels'])
