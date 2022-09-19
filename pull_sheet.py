@@ -22,9 +22,6 @@ import subprocess
 # 'statsmodels'])
 
 
-
-
-
 scope =  ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/drive.file', "https://www.googleapis.com/auth/drive","https://www.googleapis.com/auth/drive"]
 
 import gspread
@@ -48,3 +45,7 @@ x_axis = [dt.strptime(line["Timestamp"], "%m/%d/%Y %H:%M:%S") for line in data]
 data = [{'timestamp':x_axin, 'mood':y_axin} for y_axin, x_axin in zip(y_axis, x_axis)]  
 
 
+workbooker = client.open("How do you feel")
+sheet = workbooker.worksheet('Gym Records')
+fitness_data = sheet.get_all_records()
+dates_visited_gym = [dt.strptime(line['Date'], "%m/%d/%Y") for line in fitness_data]
