@@ -12,4 +12,5 @@ This is my day 1.<br><br>
 - Python Libraries: Oauth2client, plotly, numpy, streamlit (for data vis renderings)
 
 
-## NOTE TO SELF - CREATE PULLS IN DATA WITH THE "TAKEOUT" FOLDER
+## NOTE TO SELF - CREATE FINANCIAL DATA PULL & WEATHER API PULL
+## https://open-meteo.com/en/docs/historical-weather-api
