@@ -20,5 +20,4 @@ This is my day 1.<br><br>
 - Python Libraries: Oauth2client, plotly, numpy, streamlit (for data vis renderings)
 
 
-## NOTE TO SELF - CREATE FINANCIAL DATA PULL & WEATHER API PULL
-## https://open-meteo.com/en/docs/historical-weather-api
+## NOTE TO SELF - CREATE MOOD REGRESSION WITH ALL VARIABLES
