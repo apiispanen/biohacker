@@ -6,7 +6,7 @@ import pandas as pd
 import xml.etree.ElementTree as ET
 from lxml import etree
 from lxml import etree
-import datetime as dt
+from datetime import datetime as dt
 parser = etree.XMLParser(remove_comments=True)
 
 # ****** DATA TO READ BELOW *******
@@ -22,7 +22,7 @@ types_of_interest = ['HKQuantityTypeIdentifierStepCount','HKQuantityTypeIdentifi
 df_data = [] 
 
 
-print(dt.datetime.strptime('2022-09-13 21:52:05 -0400'[:-6], "%Y-%m-%d %H:%M:%S"))
+print(dt.strptime('2022-09-13 21:52:05 -0400'[:-6], "%Y-%m-%d %H:%M:%S"))
 
 
 for x in root:
@@ -30,24 +30,47 @@ for x in root:
         if x.attrib['type'] in types_of_interest:
             df_data.append([
                 x.attrib['type'],
-                dt.datetime.strptime(x.attrib['startDate'][:-6], "%Y-%m-%d %H:%M:%S"), 
-                dt.datetime.strptime(x.attrib['endDate'][:-6], "%Y-%m-%d %H:%M:%S"),
+                dt.strptime(x.attrib['startDate'][:-6], "%Y-%m-%d %H:%M:%S"), 
+                dt.strptime(x.attrib['endDate'][:-6], "%Y-%m-%d %H:%M:%S"),
                 x.attrib['unit'], 
                 float(x.attrib['value'])
                 ])
 
     except Exception as e:
         try:
-            df_data.append([x.attrib['type'],dt.datetime.strptime(x.attrib['startDate'][:-6], "%Y-%m-%d %H:%M:%S"), dt.datetime.strptime(x.attrib['endDate'][:-6], "%Y-%m-%d %H:%M:%S")]) 
+            df_data.append([x.attrib['type'],dt.strptime(x.attrib['startDate'][:-6], "%Y-%m-%d %H:%M:%S"), dt.strptime(x.attrib['endDate'][:-6], "%Y-%m-%d %H:%M:%S")]) 
         except:
-            print("*****FAILED TO UPLOAD****", x.attrib)
-            print(str(e))
+            # print("*****FAILED TO UPLOAD****", x.attrib)
+            # print(str(e))
+            continue
 
 
 health_df = pd.DataFrame(df_data, columns=['Type','startDate', 'endDate','unit', 'Value'])
-
+health_df['duration'] = health_df['endDate'] - health_df['startDate']
+# health_df = health_df.drop(['startDate'], axis=1)
+# print(health_df)
 
 # EXPORT IF DESIRED
 # health_df.to_csv('Resources/latest_health_csv.csv')
 
+flights_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierFlightsClimbed' )&
+    (health_df['endDate'] > dt(2022, 9, 8))
+    ].set_index('endDate').groupby(pd.Grouper(freq='D')).sum()
+# st.write(steps_health_df)
+
+steps_health_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierStepCount' )&
+    (health_df['endDate'] > dt(2022, 9, 8))
+    ].set_index('endDate').groupby(pd.Grouper(freq='D')).sum()
+# st.write(steps_health_df)
+
+walkrun_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierDistanceWalkingRunning') &
+    (health_df['endDate'] > dt(2022, 9, 8))
+    ].set_index('endDate').groupby(pd.Grouper(freq='D')).sum()
+# st.write(steps_health_df)
+
+
+standing_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierWalkingDoubleSupportPercentage' )&
+    (health_df['endDate'] > dt(2022, 9, 8))
+    ].set_index('endDate').groupby(pd.Grouper(freq='D')).mean()
+# st.write(steps_health_df)
 

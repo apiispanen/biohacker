@@ -9,7 +9,7 @@ from datetime import datetime as dt
 # from plot import plt
 import plotly.express as px
 import plotly.graph_objects as go
-from health import health_df
+from health import health_df, flights_df, steps_health_df, walkrun_df, standing_df
 from datetime import datetime as dt
 
 
@@ -34,12 +34,9 @@ fig.add_trace(go.Bar(x=dates_visited_gym,
 
 st.plotly_chart(fig, use_container_width=True)
 
+
 # NEW CHART FOR HEALTH
 
-steps_health_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierStepCount' )&
-    (health_df['endDate'] > dt(2022, 9, 8))
-    ].set_index('endDate').groupby(pd.Grouper(freq='D')).sum()
-# st.write(steps_health_df)
 fig = px.scatter(steps_health_df, x=steps_health_df.index, y="Value", title='Health Data Test: Total Steps', labels={
     "endDate":"Date",
     'Value':'Total Steps Taken'
@@ -48,19 +45,12 @@ fig.data[0].update(mode='markers', fill='toself')
 # fig.update_traces(marker=dict(size=12,
 #                               line=dict(width=2)),
 #                   selector=dict(mode='markers'))
-
 fig.update_traces(textposition='top left')
-
 st.plotly_chart(fig, use_container_width=True)
 
+
 # MEXT
-
-steps_health_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierFlightsClimbed' )&
-    (health_df['endDate'] > dt(2022, 9, 8))
-    ].set_index('endDate').groupby(pd.Grouper(freq='D')).sum()
-# st.write(steps_health_df)
-
-fig = px.scatter(steps_health_df, x=steps_health_df.index, y="Value", title='Health Data Test: Total Flights',labels={
+fig = px.scatter(flights_df, x=flights_df.index, y="Value", title='Health Data Test: Total Flights',labels={
     "endDate":"Date",
     'Value':'Number of Flights Climbed'
 })
@@ -69,18 +59,11 @@ fig.data[0].update(mode='markers', fill='toself')
 #                               line=dict(width=2)),
 #                   selector=dict(mode='markers'))
 fig.update_traces(textposition='top left')
-
 st.plotly_chart(fig, use_container_width=True)
 
 
 # NEXT PLOT
-
-steps_health_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierDistanceWalkingRunning') &
-    (health_df['endDate'] > dt(2022, 9, 8))
-    ].set_index('endDate').groupby(pd.Grouper(freq='D')).sum()
-# st.write(steps_health_df)
-
-fig = px.scatter(steps_health_df, x=steps_health_df.index, y="Value", title='Health Data Test: Dist Walking/Running',labels={
+fig = px.scatter(walkrun_df, x=walkrun_df.index, y="Value", title='Health Data Test: Dist Walking/Running',labels={
     "endDate":"Date",
     'Value':'Percentage of Time Standing'
 })
@@ -91,13 +74,8 @@ fig.data[0].update(mode='markers', fill='toself')
 fig.update_traces(textposition='top left')
 st.plotly_chart(fig, use_container_width=True)
 
+
 # MEXT
-
-steps_health_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierWalkingDoubleSupportPercentage' )&
-    (health_df['endDate'] > dt(2022, 9, 8))
-    ].set_index('endDate').groupby(pd.Grouper(freq='D')).mean()
-# st.write(steps_health_df)
-
 fig = px.scatter(steps_health_df, x=steps_health_df.index, y="Value", title='Health Data Test: Standing-Sitting', labels={
     "endDate":"Date",
     'Value':'Percentage of Time Standing'

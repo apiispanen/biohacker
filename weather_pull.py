@@ -28,4 +28,3 @@ df = pd.DataFrame(
 )
 
 weather_df = df.groupby(by=['Time']).mean()
-
