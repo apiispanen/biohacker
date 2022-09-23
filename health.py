@@ -10,7 +10,7 @@ from datetime import datetime as dt
 parser = etree.XMLParser(remove_comments=True)
 
 # ****** DATA TO READ BELOW *******
-health_xml = 'Resources/health_export-916.xml'
+health_xml = 'Resources/health_export-923.xml'
 # *********
 
 tree = ET.parse(health_xml, parser=parser)
@@ -21,9 +21,7 @@ types_of_interest = ['HKQuantityTypeIdentifierStepCount','HKQuantityTypeIdentifi
 
 df_data = [] 
 
-
 print(dt.strptime('2022-09-13 21:52:05 -0400'[:-6], "%Y-%m-%d %H:%M:%S"))
-
 
 for x in root:
     try:    
@@ -43,7 +41,6 @@ for x in root:
             # print("*****FAILED TO UPLOAD****", x.attrib)
             # print(str(e))
             continue
-
 
 health_df = pd.DataFrame(df_data, columns=['Type','startDate', 'endDate','unit', 'Value'])
 health_df['duration'] = health_df['endDate'] - health_df['startDate']
@@ -68,9 +65,13 @@ walkrun_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierDistan
     ].set_index('endDate').groupby(pd.Grouper(freq='D')).sum()
 # st.write(steps_health_df)
 
-
 standing_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierWalkingDoubleSupportPercentage' )&
     (health_df['endDate'] > dt(2022, 9, 8))
     ].set_index('endDate').groupby(pd.Grouper(freq='D')).mean()
 # st.write(steps_health_df)
 
+mindful_df = health_df.loc[(health_df['Type'] == 'HKCategoryTypeIdentifierMindfulSession' )&
+    (health_df['endDate'] > dt(2022, 9, 8))
+    ].set_index('endDate').groupby(pd.Grouper(freq='D')).sum()
+# st.write(steps_health_df)
+print(mindful_df)
