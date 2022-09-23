@@ -44,12 +44,13 @@ for x in root:
 
 health_df = pd.DataFrame(df_data, columns=['Type','startDate', 'endDate','unit', 'Value'])
 health_df['duration'] = health_df['endDate'] - health_df['startDate']
+
 # health_df = health_df.drop(['startDate'], axis=1)
-# print(health_df)
 
 # EXPORT IF DESIRED
 # health_df.to_csv('Resources/latest_health_csv.csv')
 
+"""
 flights_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierFlightsClimbed' )&
     (health_df['endDate'] > dt(2022, 9, 8))
     ].set_index('endDate').groupby(pd.Grouper(freq='D')).sum()
@@ -70,8 +71,12 @@ standing_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierWalki
     ].set_index('endDate').groupby(pd.Grouper(freq='D')).mean()
 # st.write(steps_health_df)
 
-mindful_df = health_df.loc[(health_df['Type'] == 'HKCategoryTypeIdentifierMindfulSession' )&
-    (health_df['endDate'] > dt(2022, 9, 8))
-    ].set_index('endDate').groupby(pd.Grouper(freq='D')).sum()
-# st.write(steps_health_df)
+print(health_df.columns)
+"""
+
+mindful_df = health_df.loc[health_df['Type'] == 'HKCategoryTypeIdentifierMindfulSession']
+mindful_df.index = pd.to_datetime(mindful_df['startDate'])
+mindful_df = mindful_df.drop(['Type','Value', 'endDate', 'unit'],axis=1)
+# ['Type','startDate','duration']
+
 print(mindful_df)
