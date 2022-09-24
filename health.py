@@ -43,7 +43,9 @@ for x in root:
             continue
 
 health_df = pd.DataFrame(df_data, columns=['Type','startDate', 'endDate','unit', 'Value'])
+# Duration made, convert it to minutes (since Mindful is the only one using it)
 health_df['duration'] = health_df['endDate'] - health_df['startDate']
+health_df['duration'] = health_df['duration'] / pd.Timedelta(minutes=1)
 
 # health_df = health_df.drop(['startDate'], axis=1)
 
@@ -77,4 +79,15 @@ mindful_df.index = pd.to_datetime(mindful_df['startDate'])
 mindful_df = mindful_df.drop(['Type','Value', 'endDate', 'unit', 'startDate'],axis=1)
 # ['Type','startDate','duration']
 
-print(mindful_df)
+# Change Around the mindful data to make it clean
+health_df.loc[health_df["Type"]=='HKCategoryTypeIdentifierMindfulSession' , "Value"] = health_df["duration"]
+health_df.loc[health_df["Type"]=='HKCategoryTypeIdentifierMindfulSession' , "unit"] = "duration"
+health_df = health_df.drop(['duration'],axis=1)
+health_df['startDate'] = pd.to_datetime(health_df['startDate'])
+
+health_df = health_df.groupby(by=['Type', 'startDate',"unit"]).sum()
+health_df.reset_index(inplace=True)
+health_df.index = health_df['startDate']
+health_df = health_df.groupby(by=['Type',pd.Grouper(key='startDate', axis=0, freq='D')]).sum()
+
+health_df = health_df.groupby(by=['startDate','Type' ])['Value'].sum().unstack().fillna(0)

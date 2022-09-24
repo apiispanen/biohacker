@@ -21,3 +21,7 @@ This is my day 1.<br><br>
 
 
 ## NOTE TO SELF - CREATE MOOD REGRESSION WITH ALL VARIABLES
+## Next up - regression with gym visits & mindful minutes
+## Also look at screentime pulls
+
+

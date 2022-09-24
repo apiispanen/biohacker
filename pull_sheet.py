@@ -3,6 +3,7 @@ import numpy as np
 #### GET MY GOOGLE SHEET DATA
 import sys
 import subprocess
+import pandas as pd
 
 
 # CHECK DEPENDENCIES:
@@ -52,3 +53,16 @@ workbooker = client.open("How do you feel")
 sheet = workbooker.worksheet('Gym Records')
 fitness_data = sheet.get_all_records()
 dates_visited_gym = [dt.strptime(line['Date'], "%m/%d/%Y") for line in fitness_data]
+data = pd.DataFrame(data)
+daily_data = data.groupby(by=[pd.Grouper(key='timestamp', axis=0, freq='D')]).mean()
+daily_data.index
+gym_df = pd.DataFrame(dates_visited_gym, index=dates_visited_gym)
+gym_df[0] = 1
+gym_df.index = pd.to_datetime(gym_df.index)
+gym_df.index = gym_df.index.rename('timestamp')
+daily_data = daily_data.merge(gym_df, on='timestamp', how='left').fillna(0)
+daily_data.columns = ['mood', 'gym_visit']
+
+daily_data['timestamp-1'] = daily_data.index - pd.offsets.DateOffset(days=1)
+daily_data['timestamp-2'] = daily_data.index - pd.offsets.DateOffset(days=2)
+daily_data['timestamp-3'] = daily_data.index - pd.offsets.DateOffset(days=3)
