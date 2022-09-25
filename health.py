@@ -91,3 +91,10 @@ health_df.index = health_df['startDate']
 health_df = health_df.groupby(by=['Type',pd.Grouper(key='startDate', axis=0, freq='D')]).sum()
 
 health_df = health_df.groupby(by=['startDate','Type' ])['Value'].sum().unstack().fillna(0)
+
+health_df.index = health_df.index.rename("timestamp")
+health_df = health_df.rename(columns={"HKCategoryTypeIdentifierMindfulSession": "mindful_min", 
+                                "HKQuantityTypeIdentifierDistanceWalkingRunning": "walk_run",
+                               "HKQuantityTypeIdentifierFlightsClimbed": 'total_flights_climbed',
+                               'HKQuantityTypeIdentifierStepCount':'total_steps',
+                               'HKQuantityTypeIdentifierWalkingDoubleSupportPercentage':'standing_percent'})
