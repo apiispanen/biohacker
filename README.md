@@ -20,6 +20,13 @@ This is my day 1.<br><br>
 - Python Libraries: Oauth2client, plotly, numpy, streamlit (for data vis renderings)
 
 
+## Applications Used for Data Collection
+- Screentime: Offscreen
+- Apple Health: Account -> "Export All Health Data"
+- Chase Credit Card: Download all records as CSV
+- Gym Visits & Mood: "Manually" entered
+- Weather API: Meteo Open API
+
 ## NOTE TO SELF - CREATE MOOD REGRESSION WITH ALL VARIABLES
 ## Next up - regression with gym visits & mindful minutes
 ## Also look at screentime pulls
