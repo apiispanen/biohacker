@@ -2,3 +2,8 @@ gspread
 oauth2client
 plotly
 statsmodels
+lxml
+sklearn
+tkinter
+plotly
+statsmodels
