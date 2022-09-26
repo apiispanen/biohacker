@@ -1,34 +1,64 @@
 # Biohacker
-My initial tests at a personal mood tracker. 
+My personal mood tracker & predictor. 
 
 ### To find the deployed online application, please see: <a href="https://apiispanen-biohacker-stream-gtgyag.streamlitapp.com/">The Streamlit App</a>
 
 ## Methods
-Biohacker is a database used to track my moods. As I give myself a scale of 1-5 (found here <a href="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfUoOkohnvjDoSDwvT945V7QfgA_v4rFHXgsgPkhfqJrjOLGQ/formResponse">here</a>), my tracker will integrate with an algorithm designed to combine this data with any activity, financial and locational data that I have that could play into this. Have I been buying too much fast food? Do I visit people who I don't enjoy being around? Does  sitting inside for 48 hours straight really contribute to my mood? I'll add more variables for analysis as I go, but this is my personal experimental project. <br><br>
-This is my day 1.<br><br> 
+Biohacker is a database used to track my moods. As I give myself a scale of 1-5 (found here <a href="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfUoOkohnvjDoSDwvT945V7QfgA_v4rFHXgsgPkhfqJrjOLGQ/formResponse">here</a>), my tracker will integrate with an algorithm designed to combine this data with any activity, financial and locational data that I have that could play into this. Have I been buying too much take out food? Do I visit people who I don't enjoy being around? Does  sitting inside for 48 hours straight really contribute to my mood? In this process, I want to uncover everything about myself - getting down to the deepest parts of me I didn't know existed. I'll add as many variables for analysis as I go, but this is a personal experiment on myself. <br><br>
+<i>This is my day 1.</i><br><br> 
 
+## Purpose
+In order to find the biggest causes to my mood changes, Biohacker was designed to log my mood while analyzing all other environmental and personal data that has been collected on my behalf during the day.
+
+### Data Being Collected
+Currently, there are two types of data being collected in this series:
+1. Active Data
+Active data requires manual input and consistent logging. In the case of this  
+2. Passive Data 
+Passive data is all the background noise that gets collected in our phones. This is the app data, the step counts, the number of times your phone was picked up. All of this gets logged somewhere, and Biohacker's job is to reconcile this all in one place. Essentially, you become a part of your own study here.
+<br>
 ## Data Extracters
 
 ### Pull_Sheet.py
+This is the main sheet that pulls our Google Forms Data & our current gym log. As the interface develops, so will this portion of the database. As of now, a dataframe of three columns are returned:
+- timestamp
+- mood: The 1-5 scale that was actively entered into how you feel.
+- gym: a binary (0 or 1) number that dictates if on this date the gym was visited.
+
 ### Health.py
-### Weather_Pull.py
-### collect_gyms.py
+This data is pulled from Apple Health. Go to Apple Health App, click on your account and "export all data" to obtain your own information. The data is exported as an XML file, and then health.py reads the data to splice the data and reconfigure it to the different types of data present:
+- Mindful minutes: The daily sum taken from the duration (endDate - startDate)
+- Total steps: The daily sum of steps taken.
+- Total Flights Climbed: The daily sum of flights climbed.
+- Total standing: The total percent of standing time - may not be useful as a variable.
+- Total walk-run: The total percent of walk-run time - may not be useful as a variable.
+
+### weather.py
+Using the free Open API <a href="https://open-meteo.com/en">open-meteo</a>, this script is able to grab us these variables for each day we analyze:
+- apparent_temperature: The "realfeel" temperature, when factoring in misc. variables such as windspeed and humidity. 
+- cloudcover: Percentage of the total cloud coverage that day.
+- precipitation: Including rain and snow
+
+### pickup_pull.py
+Combining the app <a href="https://apps.apple.com/us/app/offscreen-less-screen-time/id1474340105">Offscreen</a> with the power of Python's Pandas library, this script combines the exported data from the free application into 2 insights:
+- Total count of pickups each day
+- Total screentime logged
 
 
 ## Packages Used
 - Google Forms
-- Python Libraries: Oauth2client, plotly, numpy, streamlit (for data vis renderings)
+- IFTTT (for daily pings of Google Forms)
+- Python Libraries: Oauth2client, gspread, plotly, numpy, streamlit (for data vis renderings), lxml, requests, pandas, datetime, pprint, numpy, sklearn 
+- Jupyter Notebooks
 
 
 ## Applications Used for Data Collection
 - Screentime: Offscreen
 - Apple Health: Account -> "Export All Health Data"
 - Chase Credit Card: Download all records as CSV
-- Gym Visits & Mood: "Manually" entered
+- Gym Visits & Mood: "Manually" entered via Google Forms and gspread connection
 - Weather API: Meteo Open API
 
-## NOTE TO SELF - CREATE MOOD REGRESSION WITH ALL VARIABLES
-## Next up - regression with gym visits & mindful minutes
-## Also look at screentime pulls
+## NEXT STEPS: Interface design & strongest P values.
 
 
