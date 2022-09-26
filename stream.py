@@ -1,3 +1,4 @@
+from pull_sheet import daily_data, dates_visited_gym
 
 from urllib.request import HTTPDefaultErrorHandler
 import streamlit as st
@@ -14,7 +15,6 @@ import statsmodels.api as sm
 
 
 # IMPORT THE ONLY GIVEN DB
-from pull_sheet import daily_data, dates_visited_gym
 
 full_df = daily_data
 
