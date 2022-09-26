@@ -11,11 +11,11 @@ import pandas as pd
 # 'gspread'])
 
 
-subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
-'lxml'])
+# subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+# 'lxml'])
 
-subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
-'sklearn'])
+# subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+# 'sklearn'])
 
 
 # subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
