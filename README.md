@@ -1,9 +1,9 @@
 # Biohacker
 My personal mood tracker & predictor. 
 
-### To find the deployed online application, please see: <a href="https://apiispanen-biohacker-stream-gtgyag.streamlitapp.com/">The Streamlit App</a>
+### To find the deployed online application, please see: <a href="https://apiispanen-biohacker-stream-gtgyag.streamlitapp.com/">The Streamlit App</a><br><br>
 
-## Methods
+## Overview
 Biohacker is a database used to track my moods. As I give myself a scale of 1-5 (found here <a href="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfUoOkohnvjDoSDwvT945V7QfgA_v4rFHXgsgPkhfqJrjOLGQ/formResponse">here</a>), my tracker will integrate with an algorithm designed to combine this data with any activity, financial and locational data that I have that could play into this. Have I been buying too much take out food? Do I visit people who I don't enjoy being around? Does  sitting inside for 48 hours straight really contribute to my mood? In this process, I want to uncover everything about myself - getting down to the deepest parts of me I didn't know existed. I'll add as many variables for analysis as I go, but this is a personal experiment on myself. <br><br>
 <i>This is my day 1.</i><br><br> 
 
@@ -12,12 +12,14 @@ In order to find the biggest causes to my mood changes, Biohacker was designed t
 
 ### Data Being Collected
 Currently, there are two types of data being collected in this series:
-1. Active Data
-Active data requires manual input and consistent logging. In the case of this  
-2. Passive Data 
+1. <b>Active Data</b>:
+Active data requires manual input and consistent logging. In the case of this study on myself, this is my mood. Any other data that I have to pick up a device to add to during the day (i.e. "What activities are making me feel this way today?") is also considered to be active. The mood will serve as <i>the most important predictor in this study</i>.
+2. <b>Passive Data</b>: 
 Passive data is all the background noise that gets collected in our phones. This is the app data, the step counts, the number of times your phone was picked up. All of this gets logged somewhere, and Biohacker's job is to reconcile this all in one place. Essentially, you become a part of your own study here.
+
 <br>
-## Data Extracters
+
+## Data Extractors
 
 ### Pull_Sheet.py
 This is the main sheet that pulls our Google Forms Data & our current gym log. As the interface develops, so will this portion of the database. As of now, a dataframe of three columns are returned:
@@ -60,5 +62,7 @@ Combining the app <a href="https://apps.apple.com/us/app/offscreen-less-screen-t
 - Weather API: Meteo Open API
 
 ## NEXT STEPS: Interface design & strongest P values.
+## Add methods to the README
+
 
 
