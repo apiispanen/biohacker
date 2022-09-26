@@ -10,6 +10,11 @@ import pandas as pd
 # subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
 # 'gspread'])
 
+
+subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+'lxml'])
+
+
 # subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
 # 'tkinter'])
 

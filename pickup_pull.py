@@ -27,5 +27,3 @@ pickup_df.reset_index(inplace=True)
 pickup_df['timestamp'] = pickup_df['timestamp'].dt.date
 pickup_df.index = pd.to_datetime(pickup_df['timestamp'])
 pickup_df = pickup_df.drop(['timestamp'],axis=1)
-
-print(pickup_df)

@@ -29,3 +29,5 @@ df = pd.DataFrame(
 )
 
 weather_df = df.groupby(by=['timestamp']).mean()
+weather_df.index = pd.to_datetime(weather_df.index)
+print(weather_df.index)

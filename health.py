@@ -21,7 +21,6 @@ types_of_interest = ['HKQuantityTypeIdentifierStepCount','HKQuantityTypeIdentifi
 
 df_data = [] 
 
-print(dt.strptime('2022-09-13 21:52:05 -0400'[:-6], "%Y-%m-%d %H:%M:%S"))
 
 for x in root:
     try:    
@@ -71,8 +70,6 @@ standing_df = health_df.loc[(health_df['Type'] == 'HKQuantityTypeIdentifierWalki
     (health_df['endDate'] > dt(2022, 9, 8))
     ].set_index('endDate').groupby(pd.Grouper(freq='D')).mean()
 # st.write(steps_health_df)
-
-print(health_df.columns)
 
 mindful_df = health_df.loc[health_df['Type'] == 'HKCategoryTypeIdentifierMindfulSession']
 mindful_df.index = pd.to_datetime(mindful_df['startDate'])
