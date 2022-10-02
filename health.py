@@ -10,7 +10,7 @@ from datetime import datetime as dt
 parser = etree.XMLParser(remove_comments=True)
 
 # ****** DATA TO READ BELOW *******
-health_xml = 'Resources/health_export-923.xml'
+health_xml = 'Resources/health_export.xml'
 # *********
 
 tree = ET.parse(health_xml, parser=parser)

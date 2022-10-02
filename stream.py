@@ -116,5 +116,6 @@ final_regression = st.multiselect(
     'What variables should we run MLR on?',
     [column for column in full_df.columns[1:]],
     [column for column in full_df.columns[1:]])
+    
 # st.write(final_regression)
 st.write(make_mlr(x = full_df[final_regression], y=full_df['mood']))
