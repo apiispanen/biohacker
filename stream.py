@@ -16,13 +16,13 @@ import statsmodels.api as sm
 
 # IMPORT THE ONLY GIVEN DB
 
-full_df = daily_data
+full_df = daily_data.copy()
 
 st.title("Biohackerz")
 st.subheader('Tracking Mood over time')
 
 # POSITIONING OF THESE DBS ARE CRTICIAL TO THE BELOW FUNCTIONS. PLEASE ONLY ADJUST LABELS HERE 
-library_names = ['Health', 'Phone Pickup Data', 'Chase Financial', 'Weather']
+library_names = ['Chase Financial', 'Health', 'Phone Pickup Data', 'Weather']
 time_lags = ['timestamp','timestamp-1', 'timestamp-2', 'timestamp-3']
 
 
@@ -38,34 +38,35 @@ def mood_graph(x, y='mood', data = full_df, trace = dates_visited_gym):
     ))
     st.plotly_chart(fig, use_container_width=True)
 
-def pick_database(options, lag_option, full_df=full_df):
+def pick_database(options, lag_option, full_df=full_df , n_num = 5):
     full_df = full_df.reset_index()   
     for option in options:
-        # HEALTH
-        if option == library_names[0]: 
-            from health import health_df           
-            health_df.index.names = [lag_option]
-            full_df = full_df.merge(health_df, how='left', on=lag_option)
-        # PHONE PICKUP
-        if option == library_names[1]: 
-            from pickup_pull import pickup_df
-            pickup_df.index.names = [lag_option]
-            full_df = full_df.merge(pickup_df, how="left", on=lag_option)            
         # CHASE
-        if option == library_names[2]: 
+        if option == library_names[0]: 
             from chase_pull import chase_df
             chase_df.index.names = [lag_option]
-            full_df = full_df.merge(chase_df, how='left', on=lag_option)
+            full_df = full_df.merge(chase_df, how="outer", on=lag_option)
+        # HEALTH
+        if option == library_names[1]: 
+            from health import health_df           
+            health_df.index.names = [lag_option]
+            full_df = full_df.merge(health_df, how="outer", on=lag_option)
+        # PHONE PICKUP
+        if option == library_names[2]: 
+            from pickup_pull import pickup_df
+            pickup_df.index.names = [lag_option]
+            print(pickup_df)
+            full_df = full_df.merge(pickup_df, how="outer", on=lag_option)            
         # WEATHER
         if option == library_names[3]: 
             from weather_pull import weather_df
             weather_df.index.names = [lag_option]           
-            full_df = full_df.merge(weather_df, how='left', on=lag_option)
-
+            full_df = full_df.merge(weather_df, how="outer", on=lag_option)
     full_df.index = full_df['timestamp']
-    # full_df["matched_date"] = full_df[lag_option] 
     full_df = full_df.drop(time_lags, axis=1)
-    full_df = full_df.fillna(0)    
+    # full_df = full_df.dropna(axis=0) 
+    full_df = full_df.fillna(0)
+    full_df = full_df[[column_name for column_name in full_df if full_df[column_name][full_df[column_name] > 0].count() >= n_num ]]
     return full_df
 
 def make_mlr(x,y):
@@ -98,6 +99,13 @@ lag_option = st.selectbox(
 
 st.write('You selected:', lag_option)
 
+n_num = st.slider(
+    "N Value:",
+    min_value=0, max_value=100, value=5, step=5
+)
+
+
+
 # DATABASE SELECTOR
 options = st.multiselect(
     'What databases should we draw from?',
@@ -106,10 +114,11 @@ options = st.multiselect(
 
 
 st.write('Results:')
-full_df = pick_database(options, lag_option)
+full_df = pick_database(options, lag_option, n_num=n_num)
 
 
 st.write(full_df)
+st.table([(column_name +" VALUES GREATER THAN 0:",full_df[column_name][full_df[column_name] > 0].count()) for column_name in full_df ])
 
 
 final_regression = st.multiselect(

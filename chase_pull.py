@@ -17,5 +17,5 @@ chase_df = chase_df.groupby(by=['timestamp', 'Category'])['Amount'].sum().unstac
 # for column in chase_df.columns:
 #     chase_df = chase_df.rename(columns={column:"chase_"+column.lower()})
 chase_df.index = pd.to_datetime(chase_df.index)
-chase_df = chase_df.dropna(how='all',axis=1).fillna(0)
+chase_df = chase_df.dropna(how='all',axis=1).fillna(0).apply(abs)
 chase_df.index = chase_df.index.rename('timestamp')

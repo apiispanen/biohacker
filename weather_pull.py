@@ -28,6 +28,6 @@ df = pd.DataFrame(
     columns =['timestamp', 'Apparent Temperature', 'Cloud Cover', 'Precipitation']
 )
 
-weather_df = df.groupby(by=['timestamp']).mean()
+weather_df = df.groupby(by=['timestamp']).mean().dropna(axis=0)
 weather_df.index = pd.to_datetime(weather_df.index)
-print(weather_df.index)
+print("*****************************************************WEATHER DB BELOW*****************************************************",weather_df)

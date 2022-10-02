@@ -62,4 +62,4 @@ Combining the app <a href="https://apps.apple.com/us/app/offscreen-less-screen-t
 
 ## NEXT STEPS: ADD SLEEP TIME BASED ON LAST DAILY PICKUP AND FIRST MORNING PICKUP
 ## Interface design & strongest P values.
-## Add methods to the README
+## Add methods to the READMEx`x
