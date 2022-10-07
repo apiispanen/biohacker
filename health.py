@@ -95,3 +95,7 @@ health_df = health_df.rename(columns={"HKCategoryTypeIdentifierMindfulSession": 
                                "HKQuantityTypeIdentifierFlightsClimbed": 'total_flights_climbed',
                                'HKQuantityTypeIdentifierStepCount':'total_steps',
                                'HKQuantityTypeIdentifierWalkingDoubleSupportPercentage':'standing_percent'})
+
+
+
+print("*********************HEALTH DF *********************", health_df) 

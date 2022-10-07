@@ -1,4 +1,5 @@
 import csv
+from statistics import median
 import pandas as pd
 from datetime import datetime, timedelta
 
@@ -62,6 +63,9 @@ pickup_df['timestamp'] = pickup_df['timestamp'].dt.date
 pickup_df.index = pd.to_datetime(pickup_df['timestamp'])
 pickup_df = pickup_df.drop(['timestamp'],axis=1)
 pickup_df['pickup_duration'] = pd.to_numeric(pickup_df['pickup_duration'])
-pickup_df = pickup_df.merge(sleep_df, on='timestamp', how='left').dropna(axis=0)
+pickup_df = pickup_df.merge(sleep_df, on='timestamp', how='left')
+for column in pickup_df.columns:
+    pickup_df[column] = pickup_df[column].fillna(pickup_df[column].median()).replace(0,pickup_df[column].median())
+
 
 print("*********************PICKUP DF *********************", pickup_df) 
