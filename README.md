@@ -2,7 +2,7 @@
 My personal mood tracker & predictor. 
 
 ### To find the deployed online application, please see: <a href="https://apiispanen-biohacker-stream-gtgyag.streamlitapp.com/">The Deployed Streamlit Webapp</a>
-### To learn more about this project, please see: <a href="https://apiispanen-biohacker-stream-gtgyag.streamlitapp.com/">Medium Post</a><br><br>
+### To learn more about this project, please see: <a href="https://medium.com/@andrewpiispanen/solutions-to-a-broken-mind-200ea7ac1598">Medium Post</a><br><br>
 
 
 ## Overview
