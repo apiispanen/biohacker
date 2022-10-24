@@ -38,6 +38,23 @@ def mood_graph(x, y='mood', data = full_df, trace = dates_visited_gym):
     ))
     st.plotly_chart(fig, use_container_width=True)
 
+
+def day_of_week_graph(y='mood', data = full_df):
+    print('*************************** TESTING')
+    data = data.reset_index()
+    print(data.columns)
+    x = data['timestamp']
+    data = data.groupby(x.dt.day_name()).mean()
+    
+    fig = px.bar(data, x=data.index, y="mood", text="mood", title='Drew has a bad mood', labels={"timestamp":"Date",
+        'mood':'Average Mood'
+    })
+    fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+
+    st.plotly_chart(fig, use_container_width=True)
+
+
+
 def pick_database(options, lag_option, full_df=full_df , n_num = 5):
     full_df = full_df.reset_index()   
     for option in options:
@@ -87,7 +104,7 @@ def make_mlr(x,y):
     return print_model
 
 # MAKE THE VISUAL ELEMENTS
-
+day_of_week_graph()
 mood_graph(x=full_df.index)
 
 
