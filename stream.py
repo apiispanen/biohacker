@@ -47,9 +47,9 @@ def scatter_it(x, y='mood', data = full_df):
     st.plotly_chart(fig, use_container_width=True)
 
 def day_of_week_graph(y='mood', data = full_df):
-    print('*************************** TESTING')
+    # print('*************************** TESTING')
     data = data.reset_index()
-    print(data.columns)
+    # print(data.columns)
     x = data['timestamp']
     data = data.groupby(x.dt.day_name()).mean()
     
@@ -91,6 +91,7 @@ def pick_database(options, lag_option, full_df=full_df , n_num = 5):
     # full_df = full_df.dropna(axis=0) 
     full_df = full_df.fillna(0)
     full_df = full_df[[column_name for column_name in full_df if full_df[column_name][full_df[column_name] > 0].count() >= n_num ]]
+    full_df = full_df[full_df.mood != 0]
     return full_df
 
 def make_mlr(x,y):
@@ -142,8 +143,9 @@ full_df = pick_database(options, lag_option, n_num=n_num)
 
 
 st.write(full_df)
-st.table([(column_name +" VALUES GREATER THAN 0:",full_df[column_name][full_df[column_name] > 0].count()) for column_name in full_df ])
-
+n_analysis = "\n".join([(column_name +" VALUES GREATER THAN 0: "+str(full_df[column_name][full_df[column_name] > 0].count())) for column_name in full_df ])
+# st.expander(n_analysis, expanded=True)
+# st.write(n_analysis)
 
 final_regression = st.multiselect(
     'What variables should we run MLR on?',

@@ -98,4 +98,4 @@ health_df = health_df.rename(columns={"HKCategoryTypeIdentifierMindfulSession": 
 
 
 
-print("*********************HEALTH DF *********************", health_df) 
+# print("*********************HEALTH DF *********************", health_df) 

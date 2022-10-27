@@ -68,4 +68,4 @@ for column in pickup_df.columns:
     pickup_df[column] = pickup_df[column].fillna(pickup_df[column].median()).replace(0,pickup_df[column].median())
 
 
-print("*********************PICKUP DF *********************", pickup_df) 
+# print("*********************PICKUP DF *********************", pickup_df) 

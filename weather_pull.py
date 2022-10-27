@@ -30,4 +30,4 @@ df = pd.DataFrame(
 
 weather_df = df.groupby(by=['timestamp']).mean().dropna(axis=0)
 weather_df.index = pd.to_datetime(weather_df.index)
-print("*****************************************************WEATHER DB BELOW*****************************************************",weather_df)
+# print("*****************************************************WEATHER DB BELOW*****************************************************",weather_df)
