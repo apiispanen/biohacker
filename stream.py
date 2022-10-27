@@ -38,6 +38,13 @@ def mood_graph(x, y='mood', data = full_df, trace = dates_visited_gym):
     ))
     st.plotly_chart(fig, use_container_width=True)
 
+def scatter_it(x, y='mood', data = full_df):
+    full_df['timestamp'] = full_df.index
+    fig = px.scatter(data, x=x, y="mood", title='Drew has a bad mood', hover_data=[x,'mood', 'timestamp'], trendline='ols', labels={'x':'x',
+        'mood':'Mood (1-5)', 'timestamp':'Timestamp'
+    }, trendline_color_override='green')
+    fig.update_traces(textposition='top center')
+    st.plotly_chart(fig, use_container_width=True)
 
 def day_of_week_graph(y='mood', data = full_df):
     print('*************************** TESTING')
@@ -127,7 +134,7 @@ n_num = st.slider(
 options = st.multiselect(
     'What databases should we draw from?',
     library_names,
-    [library_names[0], library_names[1]])
+    [library_names[2], library_names[3]])
 
 
 st.write('Results:')
@@ -145,3 +152,9 @@ final_regression = st.multiselect(
     
 # st.write(final_regression)
 st.write(make_mlr(x = full_df[final_regression], y=full_df['mood']))
+
+st.write("Single Regression Analysis")
+single_analysis = st.selectbox(
+    'What variables should we run regression on?',
+    [column for column in full_df.columns[1:]])
+scatter_it(x=single_analysis, data=full_df)
