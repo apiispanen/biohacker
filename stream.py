@@ -40,7 +40,7 @@ def mood_graph(x, y='mood', data = full_df, trace = dates_visited_gym):
 
 def scatter_it(x, y='mood', data = full_df):
     full_df['timestamp'] = full_df.index
-    fig = px.scatter(data, x=x, y="mood", title='Drew has a bad mood', hover_data=[x,'mood', 'timestamp'], trendline='ols', labels={'x':'x',
+    fig = px.scatter(data, x=x, y="mood", title='Comparing Mood with Variables', hover_data=[x,'mood', 'timestamp'], trendline='ols', labels={'x':'x',
         'mood':'Mood (1-5)', 'timestamp':'Timestamp'
     }, trendline_color_override='green')
     fig.update_traces(textposition='top center')
@@ -107,7 +107,7 @@ def make_mlr(x,y):
     
     model = sm.OLS(y, x).fit()
     predictions = model.predict(x) 
-    
+    st.write()
     print_model = model.summary()
     return print_model
 
