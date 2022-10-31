@@ -1,7 +1,42 @@
 body {
-    background: white url("images/background.png") no-repeat;
+    background: white no-repeat;
 }
 
-li a {
-    color: green;
+* {
+    color: rgba(48, 50, 46, 0.80);
+    text-decoration: none;
+    text-align: center;
+    list-style: none;
+    font-weight: bold;
+    font-size: 24px;
+    padding:20px
 }
+
+.fade-in {
+    animation: fadeIn 2s;
+}
+
+.fade-out {
+    /* animation: fadeOut 2s;
+    animation-name: fadeOut; */
+}
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes fadeOut {
+    0%   {opacity:1; right:0px;}
+    25%  {opacity:0.75; right:50px; }
+    50%  {opacity:0.5; right:100px; }
+    75%  {opacity:0.25; right:150px; }
+    100% {opacity:0; right:200px; }
+  }
+
+  
+/* @keyframes fadeIn {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  } */

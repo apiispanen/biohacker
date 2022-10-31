@@ -1,13 +1,33 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
+<script>
+    $(function(){
+        // console.log("FUNCTIONAL");
+        $('body').fadeIn();
+        $('.fade-out').click(function(){
+            // console.log($(this).attr('id'));
+            url = $(this).attr('id');
+            // $(this).toggleClass("fade-out");
+            $(this).animate({left: "-50%"}).delay( 800 ).fadeOut(function(){
+                window.location = url;
+           
+            });     
+        });
+    });
+</script>
+<body>
+    
 {% if latest_question_list %}
-    <ul>
+    <ul class="fade-in">
     {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        <li id="{% url 'polls:detail' question.id %}" class="fade-out">{{ question.question_text }}</li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+
+</body>
