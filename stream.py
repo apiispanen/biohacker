@@ -18,7 +18,7 @@ import statsmodels.api as sm
 
 full_df = daily_data.copy()
 
-st.title("Biohackerz")
+st.title("Biohacker Dashboard")
 st.subheader('Tracking Mood over time')
 
 # POSITIONING OF THESE DBS ARE CRTICIAL TO THE BELOW FUNCTIONS. PLEASE ONLY ADJUST LABELS HERE 
@@ -27,7 +27,7 @@ time_lags = ['timestamp','timestamp-1', 'timestamp-2', 'timestamp-3']
 
 
 def mood_graph(x, y='mood', data = full_df, trace = dates_visited_gym):
-    fig = px.scatter(data, x=x, y="mood", text="mood", title='Drew has a bad mood', trendline='ols', labels={"timestamp":"Date",
+    fig = px.scatter(data, x=x, y="mood", text="mood", title='Daily Mood', trendline='ols', labels={"timestamp":"Date",
         'mood':'Mood (1-5)'
     }, trendline_color_override='green')
     fig.data[0].update(mode='markers+lines', fill='toself')

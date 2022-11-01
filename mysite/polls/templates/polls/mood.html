@@ -6,14 +6,13 @@
 
 <body>
     
-{% if latest_question_list %}
-    <ul class="fade-in">
-    {% for question in latest_question_list %}
-        <li id="{% url 'polls:detail' question.id %}" class="fade-out">{{ question.question_text }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+<h2>How do you feel today?</h2>
+    <ul id="mood-form" class="fade-in">
+    <li id="question-1" class="fade-out">1</li>
+    <li id="question-2" class="fade-out">2</li>
+    <li id="question-3" class="fade-out">3</li>
+    <li id="question-4" class="fade-out">4</li>
+    <li id="question-5" class="fade-out">5</li>
+</ul>
 
 </body>
