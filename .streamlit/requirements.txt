@@ -1,0 +1,8 @@
+gspread
+oauth2client
+plotly
+statsmodels
+lxml
+sklearn
+plotly
+statsmodels
