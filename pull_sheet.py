@@ -38,10 +38,13 @@ scope =  ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/a
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+from security.getjson import creds
+import json
 
-# KEEP CREDS.JSON, AS IT SERVES THE AUTH KEY FOR THIS PROJECT
-creds = ServiceAccountCredentials.from_json_keyfile_name("creds.json", scope)
-client = gspread.authorize(creds)
+# TOML FILE IN .STREAMLIT/
+cred_link = ServiceAccountCredentials.from_json_keyfile_dict(creds, scope)
+
+client = gspread.authorize(cred_link)
 sheet = client.open("How do you feel").sheet1
 data = sheet.get_all_records()
 
