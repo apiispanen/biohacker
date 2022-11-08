@@ -45,6 +45,10 @@ client = gspread.authorize(creds)
 sheet = client.open("How do you feel").sheet1
 data = sheet.get_all_records()
 
+
+def enter_row(timestamp, mood, sheet=sheet):
+    sheet.append_row([timestamp, mood])
+
 #### UNCOMMENT ABOVE ^^^^ 
 
 # IF YOU JUST WANT SAMPLE DATA, UNOMMENT BELOW:

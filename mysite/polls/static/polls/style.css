@@ -23,14 +23,26 @@ body {
     100% { opacity: 1; }
   }
 
-  @keyframes fadeOut {
-    0%   {opacity:1; right:0px;}
-    25%  {opacity:0.75; right:50px; }
-    50%  {opacity:0.5; right:100px; }
-    75%  {opacity:0.25; right:150px; }
-    100% {opacity:0; right:200px; }
-  }
+@keyframes fadeDown {
+  0%   {opacity:1; top:0px;}
+  25%  {opacity:0.75; top:50px; }
+  50%  {opacity:0.5; top:100px; }
+  75%  {opacity:0.25; top:150px; }
+  100% {opacity:0; top:200px; }
+}
 
+@keyframes fadeOut {
+  0%   {opacity:1; right:0px;}
+  25%  {opacity:0.75; right:50px; }
+  50%  {opacity:0.5; right:100px; }
+  75%  {opacity:0.25; right:150px; }
+  100% {opacity:0; right:200px; }
+}
+
+  .moods *{
+    position:relative;
+    display: inline-block;
+  }
   
   /* RADIO SELECTOR */
 

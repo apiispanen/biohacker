@@ -126,7 +126,7 @@ st.write('You selected:', lag_option)
 
 n_num = st.slider(
     "N Value:",
-    min_value=0, max_value=100, value=5, step=5
+    min_value=0, max_value=100, value=15, step=5
 )
 
 
@@ -135,7 +135,7 @@ n_num = st.slider(
 options = st.multiselect(
     'What databases should we draw from?',
     library_names,
-    [library_names[2], library_names[3]])
+    [library_names[0], library_names[2], library_names[3]])
 
 
 st.write('Results:')

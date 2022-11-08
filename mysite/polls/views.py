@@ -8,9 +8,9 @@ from .models import Choice, Question
 
 
 
-class MoodView(generic.ListView):
-    template_name = 'polls/mood.html'
-    context_object_name = 'mood'
+class MoodsView(generic.ListView):
+    template_name = 'polls/moods.html'
+    context_object_name = 'moods'
 
     def get_queryset(self):
         """
