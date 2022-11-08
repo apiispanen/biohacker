@@ -3,6 +3,6 @@ oauth2client
 plotly
 statsmodels
 lxml
-sklearn
+scikit-learn
 plotly
 statsmodels
