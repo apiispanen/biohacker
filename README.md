@@ -7,7 +7,6 @@ My personal mood tracker & predictor.
 
 ## Overview
 Biohacker is a database used to track my moods. As I give myself a scale of 1-5 (found here <a href="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfUoOkohnvjDoSDwvT945V7QfgA_v4rFHXgsgPkhfqJrjOLGQ/formResponse">here</a>), my tracker will integrate with an algorithm designed to combine this data with any activity, financial and locational data that I have that could play into this. Have I been buying too much take out food? Do I visit people who I don't enjoy being around? Does  sitting inside for 48 hours straight really contribute to my mood? In this process, I want to uncover everything about myself - getting down to the deepest parts of me I didn't know existed. I'll add as many variables for analysis as I go, but this is a personal experiment on myself. <br><br>
-<i>This is my day 1.</i><br><br> 
 
 ## Purpose
 In order to find the biggest causes to my mood changes, Biohacker was designed to log my mood while analyzing all other environmental and personal data that has been collected on my behalf during the day.
@@ -37,7 +36,7 @@ This data is pulled from Apple Health. Go to Apple Health App, click on your acc
 - Total standing: The total percent of standing time - may not be useful as a variable.
 - Total walk-run: The total percent of walk-run time - may not be useful as a variable.
 
-### weather.py
+### weather_pull.py
 Using the free Open API <a href="https://open-meteo.com/en">open-meteo</a>, this script is able to grab us these variables for each day we analyze:
 - apparent_temperature: The "realfeel" temperature, when factoring in misc. variables such as windspeed and humidity. 
 - cloudcover: Percentage of the total cloud coverage that day.
