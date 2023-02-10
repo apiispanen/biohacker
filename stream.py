@@ -13,7 +13,6 @@ from sklearn import linear_model
 import statsmodels.api as sm
 
 
-
 # IMPORT THE ONLY GIVEN DB
 
 full_df = daily_data.copy()
@@ -59,8 +58,6 @@ def day_of_week_graph(y='mood', data = full_df):
     fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
 
     st.plotly_chart(fig, use_container_width=True)
-
-
 
 def pick_database(options, lag_option, full_df=full_df , n_num = 5):
     full_df = full_df.reset_index()   
@@ -115,8 +112,6 @@ def make_mlr(x,y):
 day_of_week_graph()
 mood_graph(x=full_df.index)
 
-
-
 # LAG SELECTOR
 lag_option = st.selectbox(
     'Time Lag',
@@ -128,8 +123,6 @@ n_num = st.slider(
     "N Value:",
     min_value=0, max_value=100, value=15, step=5
 )
-
-
 
 # DATABASE SELECTOR
 options = st.multiselect(

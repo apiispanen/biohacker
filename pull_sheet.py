@@ -82,3 +82,4 @@ daily_data['timestamp-1'] = daily_data.index - pd.offsets.DateOffset(days=1)
 daily_data['timestamp-2'] = daily_data.index - pd.offsets.DateOffset(days=2)
 daily_data['timestamp-3'] = daily_data.index - pd.offsets.DateOffset(days=3)
 
+daily_data['mood'] = daily_data['mood'].replace(0,daily_data['mood'].mean())
