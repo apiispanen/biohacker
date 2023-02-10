@@ -61,6 +61,10 @@ Data Type: Application Used
 - Gym Visits & Mood: "Manually" entered via Google Forms and gspread connection
 - Weather API: Meteo Open API
 
+#### Release Notes:
+2-10-2023: Imputers have been added so any unfilled data reads for the mean, 3. This is due to the fact that there was nothing notable to log, which should consider the day to be a normal one. 
+
+
 ## NEXT STEPS: ADD SLEEP TIME BASED ON LAST DAILY PICKUP AND FIRST MORNING PICKUP
 ## Interface design & strongest P values.
 ## Add methods to the README
