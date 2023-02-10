@@ -26,7 +26,7 @@ time_lags = ['timestamp','timestamp-1', 'timestamp-2', 'timestamp-3']
 
 
 def mood_graph(x, y='mood', data = full_df, trace = dates_visited_gym):
-    fig = px.scatter(data, x=x, y="mood", text="mood", title='Daily Mood', trendline='ols', labels={"timestamp":"Date",
+    fig = px.scatter(data, x=x, y="mood", text="mood", title='Average Daily Mood', trendline='ols', labels={"timestamp":"Date",
         'mood':'Mood (1-5)'
     }, trendline_color_override='green')
     fig.data[0].update(mode='markers+lines', fill='toself')
@@ -52,7 +52,7 @@ def day_of_week_graph(y='mood', data = full_df):
     x = data['timestamp']
     data = data.groupby(x.dt.day_name()).mean()
     
-    fig = px.bar(data, x=data.index, y="mood", text="mood", title='Drew has a bad mood', labels={"timestamp":"Date",
+    fig = px.bar(data, x=data.index, y="mood", text="mood", title='Drew has a bad mood (Average Daily Mood By Weekday)', labels={"timestamp":"Date",
         'mood':'Average Mood'
     })
     fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
