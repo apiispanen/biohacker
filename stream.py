@@ -21,9 +21,10 @@ st.title("The Biohacker Project")
 st.subheader('Tracking Mood over time')
 
 st.caption(
-    """The Biohacker project is a preliminary study conducted by Drew Piispanen, aimed at tracking variables that alter mood changes. Mental health is a growing concern in America, with research showing that one in five adults experience some form of mental illness each year. The study involves daily mood self-assessments using a 1-5 scale, with data gathered from various sources such as the individual and their environment. The research aims to analyze the data to gain insights into the individual's daily routine, with the potential for future iterations to develop improved models for a better understanding of mood changes. The project's methodology is designed to enhance the individual's self-awareness and provide valuable insights into factors that influence their mood, contributing to overall well-being. <a href="https://medium.com/@andrewpiispanen/solutions-to-a-broken-mind-200ea7ac1598">Read the full article here.</a>
+    """The Biohacker project is a preliminary study conducted by Drew Piispanen, aimed at tracking variables that alter mood changes. Mental health is a growing concern in America, with research showing that one in five adults experience some form of mental illness each year. The study involves daily mood self-assessments using a 1-5 scale, with data gathered from various sources such as the individual and their environment. The research aims to analyze the data to gain insights into the individual's daily routine, with the potential for future iterations to develop improved models for a better understanding of mood changes. The project's methodology is designed to enhance the individual's self-awareness and provide valuable insights into factors that influence their mood, contributing to overall well-being.
     """
 )
+st.code('<a href="https://medium.com/@andrewpiispanen/solutions-to-a-broken-mind-200ea7ac1598">Read the full article here.</a>')
 
 
 # POSITIONING OF THESE DBS ARE CRTICIAL TO THE BELOW FUNCTIONS. PLEASE ONLY ADJUST LABELS HERE 
