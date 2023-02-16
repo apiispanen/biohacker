@@ -120,7 +120,7 @@ day_of_week_graph()
 mood_graph(x=full_df.index)
 
 st.subheader("Models: MLR Analysis")
-st.caption("One of the key techniques used in the Biohacker project is multiple linear regression. This method enables Drew Piispanen to determine the prominent variables affecting his mood by analyzing the strength of the relationship between various factors and his daily mood changes. By altering the scope of analysis depending on the strength of the variable, he can identify the most significant predictors of his mood and make informed changes to his daily routine. This methodology is aimed at enhancing self-awareness and providing valuable insights into the factors that influence mood and overall well-being. Try exploring the data with the datasets/variables given below:")
+st.caption("One of the key techniques used in the Biohacker project is multiple linear regression. This method enables the researchers to determine the prominent variables affecting Drew's mood by analyzing the strength of the relationship between various factors and his daily mood changes. By altering the scope of analysis depending on the strength of the variable, he can identify the most significant predictors of his mood and make informed changes to his daily routine. This methodology is aimed at enhancing self-awareness and providing valuable insights into the factors that influence mood and overall well-being. Try exploring the data with the datasets/variables given below:")
 
 # LAG SELECTOR
 lag_option = st.selectbox(
@@ -158,10 +158,12 @@ final_regression = st.multiselect(
 # st.write(final_regression)
 st.write(make_mlr(x = full_df[final_regression], y=full_df['mood']))
 
-
+st.empty()
 st.subheader("Single Regression Analysis")
 st.caption("To gain deeper insights into the variables affecting mood changes, a graph exploring the relationship between individual variables and mood scores is presented below.")
 single_analysis = st.selectbox(
     'What variables should we run regression on?',
     [column for column in full_df.columns[1:]])
 scatter_it(x=single_analysis, data=full_df)
+
+st.markdown("See the Biohacker repo on [Github](https://github.com/apiispanen/biohacker)")
