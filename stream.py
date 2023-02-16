@@ -24,7 +24,7 @@ st.caption(
     """The Biohacker project is a preliminary study conducted by Drew Piispanen, aimed at tracking variables that alter mood changes. Mental health is a growing concern in America, with research showing that one in five adults experience some form of mental illness each year. The study involves daily mood self-assessments using a 1-5 scale, with data gathered from various sources such as the individual and their environment. The research aims to analyze the data to gain insights into the individual's daily routine, with the potential for future iterations to develop improved models for a better understanding of mood changes. The project's methodology is designed to enhance the individual's self-awareness and provide valuable insights into factors that influence their mood, contributing to overall well-being.
     """
 )
-st.code('<a href="https://medium.com/@andrewpiispanen/solutions-to-a-broken-mind-200ea7ac1598">Read the full article here.</a>')
+st.markdown('Still curious? Read the full article [here.](https://medium.com/@andrewpiispanen/solutions-to-a-broken-mind-200ea7ac1598)',unsafe_allow_html=True)
 
 
 # POSITIONING OF THESE DBS ARE CRTICIAL TO THE BELOW FUNCTIONS. PLEASE ONLY ADJUST LABELS HERE 
@@ -119,6 +119,9 @@ def make_mlr(x,y):
 day_of_week_graph()
 mood_graph(x=full_df.index)
 
+st.subheader("Models: MLR Analysis")
+st.caption("One of the key techniques used in the Biohacker project is multiple linear regression. This method enables Drew Piispanen to determine the prominent variables affecting his mood by analyzing the strength of the relationship between various factors and his daily mood changes. By altering the scope of analysis depending on the strength of the variable, he can identify the most significant predictors of his mood and make informed changes to his daily routine. This methodology is aimed at enhancing self-awareness and providing valuable insights into the factors that influence mood and overall well-being. Try exploring the data with the datasets/variables given below:")
+
 # LAG SELECTOR
 lag_option = st.selectbox(
     'Time Lag',
@@ -155,7 +158,9 @@ final_regression = st.multiselect(
 # st.write(final_regression)
 st.write(make_mlr(x = full_df[final_regression], y=full_df['mood']))
 
-st.write("Single Regression Analysis")
+
+st.subheader("Single Regression Analysis")
+st.caption("To gain deeper insights into the variables affecting mood changes, a graph exploring the relationship between individual variables and mood scores is presented below.")
 single_analysis = st.selectbox(
     'What variables should we run regression on?',
     [column for column in full_df.columns[1:]])
