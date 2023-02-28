@@ -7,13 +7,18 @@ import xml.etree.ElementTree as ET
 from lxml import etree
 from lxml import etree
 from datetime import datetime as dt
+
 parser = etree.XMLParser(remove_comments=True)
 
 # ****** DATA TO READ BELOW *******
 health_xml = 'Resources/health_export.xml'
 # *********
+try:
+    tree = ET.parse(health_xml, parser=parser)
+except ET.ParseError as e:
+    print(f"Error parsing XML file: {e}")
+    # Handle the error or ignore it, depending on your needs
 
-tree = ET.parse(health_xml, parser=parser)
 root = tree.getroot()
 records = root.findall("Record")
 
