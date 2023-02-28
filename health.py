@@ -24,7 +24,7 @@ urllib.request.urlretrieve(xml_url, local_file)
 parser = etree.XMLParser(remove_comments=True)
 
 # ****** DATA TO READ BELOW *******
-health_xml = 'Resources/health_export.xml'
+health_xml = 'Resources/health.xml'
 
 # *********
 try:
