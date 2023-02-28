@@ -8,6 +8,19 @@ from lxml import etree
 from lxml import etree
 from datetime import datetime as dt
 
+import urllib.request
+import os
+
+# URL of the XML file
+xml_url = "https://github.com/apiispanen/biohacker/raw/main/Resources/health_export.xml"
+
+# Download the XML file and save it to a local directory
+local_dir = "Resources/"
+local_file = os.path.join(local_dir, "health.xml")
+
+urllib.request.urlretrieve(xml_url, local_file)
+
+
 parser = etree.XMLParser(remove_comments=True)
 
 # ****** DATA TO READ BELOW *******
