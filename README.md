@@ -47,10 +47,11 @@ Combining the app <a href="https://apps.apple.com/us/app/offscreen-less-screen-t
 - Total screentime logged
 
 ## Packages Used
+- Python Libraries: Oauth2client, gspread, plotly, numpy, streamlit (for data vis renderings), lxml, requests, pandas, datetime, pprint, numpy, sklearn 
+- Streamlit Cloud
+- Jupyter Notebooks
 - Google Forms
 - IFTTT (for daily pings of Google Forms)
-- Python Libraries: Oauth2client, gspread, plotly, numpy, streamlit (for data vis renderings), lxml, requests, pandas, datetime, pprint, numpy, sklearn 
-- Jupyter Notebooks
 
 
 ## Applications Used for Data Collection
