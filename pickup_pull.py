@@ -13,20 +13,23 @@ with open('Resources/pickups.csv', newline='') as csvfile:
 # columns = ['timestamp','Post Date','Description','Category','Type','Amount','Memo']
 
 pickup_df = pd.DataFrame(pick_list[1:], columns=pick_list[0]).drop(['id',' isIgnoredForSleepTime','deviceId'], axis=1)
+print(pickup_df)
 
+pickup_df["dt_end"] = pd.to_datetime(pickup_df['end'].str[1:-7], format="%Y-%m-%d %H:%M:%S")
+pickup_df['dt_start'] =pd.to_datetime(pickup_df['start'].str[1:-7], format="%Y-%m-%d %H:%M:%S")
 # Make Session Duration
-pickup_df['pickup_duration'] = pd.to_datetime(pickup_df['end']) - pd.to_datetime(pickup_df['start'])
+pickup_df['pickup_duration'] = pickup_df["dt_end"] - pickup_df["dt_start"]
 # Now covert it to minutes
 pickup_df['pickup_duration'] = pickup_df['pickup_duration'] / pd.Timedelta(minutes=1)
-pickup_df['timestamp'] = pd.to_datetime(pickup_df['start'], format="%Y-%m-%d")
+pickup_df['timestamp'] = pickup_df["dt_start"]
 pickup_df['pickup_count'] = 1
 
 
 
 # MAKE NEW DF FOR SLEEP ANALYSIS
 sleep_df = pickup_df[['start', 'end']].copy()
-sleep_df['end'] = pd.to_datetime(pickup_df['end']) - timedelta(hours=8)
-sleep_df['start'] = pd.to_datetime(pickup_df['start']) - timedelta(hours=8)
+sleep_df['end'] = pickup_df["dt_end"] - timedelta(hours=8)
+sleep_df['start'] = pickup_df["dt_start"] - timedelta(hours=8)
 sleep_df.index = sleep_df['end'] + timedelta(hours=8)
 sleep_df = sleep_df.groupby(pd.Grouper(key="end", freq="D")).agg(
     max=('end', 'max'), min=('start', min)
@@ -54,7 +57,7 @@ sleep_df = sleep_df.drop(['end','min', 'max'], axis=1)
 
 
 # NOW ADD IT ALL TOGETHER
-pickup_df = pickup_df.drop(['start', 'end'], axis=1)
+pickup_df = pickup_df.drop(['start', 'end', 'dt_start', 'dt_end'], axis=1)
 
 pickup_df = pickup_df.groupby(pd.Grouper(key="timestamp", freq="D")).sum()
 
